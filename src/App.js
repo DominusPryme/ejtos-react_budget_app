@@ -3,7 +3,7 @@ import { AppProvider } from './context/AppContext';
 import ExpenseList from './components/ExpenseList';
 import ItemSelected from './components/ItemSelected';
 import Remaining from './components/Remaining';
-import SpentSoFar from './components/SpentSoFar'; // Correct import
+import SpentSoFar from './components/SpentSoFar';
 import BudgetAllocation from './components/BudgetAllocation';
 
 function App() {
