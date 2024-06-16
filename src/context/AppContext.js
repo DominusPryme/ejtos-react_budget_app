@@ -1,56 +1,34 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
+import AppReducer from './AppReducer';
 
-// Initial state
 const initialState = {
-    budget: 2000,
-    expenses: [
-        { id: 1, name: 'Marketing', cost: 60 },
-        { id: 2, name: 'Finance', cost: 300 },
-        { id: 3, name: 'Sales', cost: 70 },
-        { id: 4, name: 'Human Resource', cost: 40 },
-        { id: 5, name: 'IT', cost: 500 },
+    expenses: JSON.parse(localStorage.getItem('expenses')) || [
+        { id: "Marketing", name: 'Marketing', quantity: 0, unitprice: 50 },
+        { id: "Finance", name: 'Finance', quantity: 0, unitprice: 300 },
+        { id: "Sales", name: 'Sales', quantity: 0, unitprice: 70 },
+        { id: "HumanResource", name: 'Human Resource', quantity: 0, unitprice: 40 },
+        { id: "IT", name: 'IT', quantity: 0, unitprice: 500 },
     ],
+    Location: '£',
+    CartValue: 1000,
 };
 
-// Create context
 export const AppContext = createContext();
 
-const appReducer = (state, action) => {
-    switch (action.type) {
-        case 'ADD_EXPENSE':
-            return {
-                ...state,
-                expenses: [...state.expenses, action.payload],
-            };
-        case 'SET_BUDGET':
-            return {
-                ...state,
-                budget: action.payload,
-            };
-        case 'UPDATE_EXPENSE':
-            return {
-                ...state,
-                expenses: state.expenses.map((expense) =>
-                    expense.id === action.payload.id
-                        ? { ...expense, cost: expense.cost + action.payload.amount }
-                        : expense
-                ),
-            };
-        default:
-            return state;
-    }
-};
+export const AppProvider = (props) => {
+    const [state, dispatch] = useReducer(AppReducer, initialState);
 
-// Provider component
-export const AppProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(appReducer, initialState);
+    useEffect(() => {
+        localStorage.setItem('expenses', JSON.stringify(state.expenses));
+    }, [state.expenses]);
 
-    const totalExpenses = state.expenses.reduce((total, item) => total + item.cost, 0);
-    const remaining = state.budget - totalExpenses;
+    useEffect(() => {
+        localStorage.setItem('CartValue', state.CartValue);
+    }, [state.CartValue]);
 
     return (
-        <AppContext.Provider value={{ ...state, dispatch, remaining }}>
-            {children}
+        <AppContext.Provider value={{ ...state, dispatch }}>
+            {props.children}
         </AppContext.Provider>
     );
 };
