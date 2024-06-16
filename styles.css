@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1em;
+}
+
+nav .logo {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    text-align: center;
+    padding: 4em 0;
+    background: url('background.jpg') no-repeat center center/cover;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+}
+
+.search-bar {
+    margin-top: 1em;
+}
+
+.search-bar input {
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.search-bar button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    margin-left: 0.5em;
+}
+
+main {
+    padding: 2em;
+}
+
+.intro {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.background-img {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
+
+.book-now {
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+
+.social-media {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.social-media .social-icon {
+    margin: 0 1em;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.col-sm {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
